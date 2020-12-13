@@ -69,10 +69,7 @@ this.getPostes();
                
                 <section className="row-section">
                     <div className="container">
-                        <div className="row">
-                            <h2 className="text-center"><span>List of postes</span>Created with <i
-                                className="fa fa-heart"></i> by yemiwebby</h2>
-                        </div>
+
                         <TextField
     id="date"
     label="jour"
