@@ -3,6 +3,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import Attributions from './Attributions';
 import '../../css/app.css';   
+import { TextField } from '@material-ui/core';
 class postes extends Component {
     constructor() {
         super();
@@ -12,6 +13,7 @@ class postes extends Component {
         this.closeModal=this.closeModal.bind(this);
         this.ajoutPoste=this.ajoutPoste.bind(this);
         this.update=this.update.bind(this);
+        this.getByDate=this.getByDate.bind(this);
     }
     
     componentDidMount() {
@@ -32,6 +34,11 @@ class postes extends Component {
     update(){
 this.getPostes();
         
+    }
+    getByDate(e){
+
+this.setState({date:e.target.value});
+this.getPostes();
     }
     openModal (e) {
 
@@ -66,7 +73,12 @@ this.getPostes();
                             <h2 className="text-center"><span>List of postes</span>Created with <i
                                 className="fa fa-heart"></i> by yemiwebby</h2>
                         </div>
-                        <input type="date" onChange={this.getPostes}/>
+                        <TextField
+    id="date"
+    label="jour"
+    type="date"
+    onChange={this.getByDate}
+  />
 
                         <button onClick={this.openModal} >Ajout poste</button>
                         {loading ? (
