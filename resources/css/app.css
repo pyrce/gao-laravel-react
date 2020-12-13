@@ -105,3 +105,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
+@media all and (max-width:760px){
+    .horaires{
+    display: flex;
+    flex-direction: column;
+}
+.horaires span {
+    display: flex;
+    flex-direction: row;
+}
+}

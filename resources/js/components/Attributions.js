@@ -90,13 +90,13 @@ this.state.heures.map(h=>{
 )
 
     if(r.length>0){
-            nom.push( <div className="horaires col-12"> <span className="col-5" key={h}> {h} h </span><span className="col-7"> { r[0].clients.nomClient+" "+r[0].clients.prenomClient }  </span><button className="btn btn-warning" onClick={this.delete} data-id={r[0].id}> - </button></div>)
+            nom.push( <div className="horaires col-12"> <span className="col-lg-5 col-md-5 col-sm-12" key={h}> {h} h </span><span className="col-lg-7  col-md-7 col-sm-12"> { r[0].clients.nomClient+" "+r[0].clients.prenomClient }  </span><button className="btn btn-warning" onClick={this.delete} data-id={r[0].id}> - </button></div>)
           }else {
-          nom.push(   <div className="horaires col-12"><span  className="col-5" key={h}>{h} h</span> <span className="col-7"></span> <button  className="btn btn-primary" onClick={this.openModal} data-horaire={h}   data-pc={posteId} data-param="ajout"> + </button> </div>)
+          nom.push(   <div className="horaires col-12"><span  className="col-lg-5 col-md-5 col-sm-12" key={h}>{h} h</span> <span className="col-lg-7  col-md-7 col-sm-12"></span> <button  className="btn btn-primary" onClick={this.openModal} data-horaire={h}   data-pc={posteId} data-param="ajout"> + </button> </div>)
         }
 
            } else {
-            nom.push(   <div className="horaires col-12"><span  className="col-5" key={h}>{h} h</span> <span className="col-7"></span> <button  className="btn btn-primary" onClick={this.openModal} data-horaire={h}   data-pc={posteId} data-param="ajout"> + </button> </div>)
+            nom.push(   <div className="horaires col-12"><span  className="col-lg-5 col-md-5 col-sm-12" key={h}>{h} h</span> <span className="col-lg-7  col-md-7 col-sm-12"></span> <button  className="btn btn-primary" onClick={this.openModal} data-horaire={h}   data-pc={posteId} data-param="ajout"> + </button> </div>)
 
           }   } )
           

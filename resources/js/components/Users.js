@@ -69,15 +69,21 @@ this.getPostes();
                
                 <section className="row-section">
                     <div className="container">
+<div className="d-flex flex-row">
 
                         <TextField
     id="date"
     label="jour"
     type="date"
     onChange={this.getByDate}
+    className=" bg-light"
+    InputLabelProps={{
+        shrink: true,
+      }}
   />
 
-                        <button onClick={this.openModal} >Ajout poste</button>
+                        <button onClick={this.openModal} className="btn btn-info">Ajout poste</button>
+                        </div>
                         {loading ? (
                             <div className={'row text-center'}>
                                 <span className="fa fa-spin fa-spinner fa-4x"></span>
@@ -92,7 +98,7 @@ this.getPostes();
         </Modal>
                       { 
                                 this.state.listepostes.map(p =>
-                                    <div className="col-md-3 offset-md-1 row-block card" key={p.id}>
+                                    <div className="col-md-4 col-lg-3 col-sm-3 offset-md-1 row-block card" key={p.id}>
                                     <div className="card-body">
                                             {p.nomPoste}
                                  

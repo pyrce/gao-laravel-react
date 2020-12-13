@@ -87760,10 +87760,10 @@ var Attributions = /*#__PURE__*/function (_Component) {
             nom.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "horaires col-12"
             }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              className: "col-5",
+              className: "col-lg-5 col-md-5 col-sm-12",
               key: h
             }, " ", h, " h "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              className: "col-7"
+              className: "col-lg-7  col-md-7 col-sm-12"
             }, " ", r[0].clients.nomClient + " " + r[0].clients.prenomClient, "  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
               className: "btn btn-warning",
               onClick: _this5["delete"],
@@ -87773,10 +87773,10 @@ var Attributions = /*#__PURE__*/function (_Component) {
             nom.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
               className: "horaires col-12"
             }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              className: "col-5",
+              className: "col-lg-5 col-md-5 col-sm-12",
               key: h
             }, h, " h"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-              className: "col-7"
+              className: "col-lg-7  col-md-7 col-sm-12"
             }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
               className: "btn btn-primary",
               onClick: _this5.openModal,
@@ -87789,10 +87789,10 @@ var Attributions = /*#__PURE__*/function (_Component) {
           nom.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "horaires col-12"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "col-5",
+            className: "col-lg-5 col-md-5 col-sm-12",
             key: h
           }, h, " h"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "col-7"
+            className: "col-lg-7  col-md-7 col-sm-12"
           }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             className: "btn btn-primary",
             onClick: _this5.openModal,
@@ -88119,14 +88119,21 @@ var postes = /*#__PURE__*/function (_Component) {
         className: "row-section"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex flex-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["TextField"], {
         id: "date",
         label: "jour",
         type: "date",
-        onChange: this.getByDate
+        onChange: this.getByDate,
+        className: " bg-light",
+        InputLabelProps: {
+          shrink: true
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.openModal
-      }, "Ajout poste"), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.openModal,
+        className: "btn btn-info"
+      }, "Ajout poste")), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: 'row text-center'
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "fa fa-spin fa-spinner fa-4x"
@@ -88149,7 +88156,7 @@ var postes = /*#__PURE__*/function (_Component) {
         onClick: this.ajoutPoste
       }, "ajouter")), this.state.listepostes.map(function (p) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-md-3 offset-md-1 row-block card",
+          className: "col-md-4 col-lg-3 col-sm-3 offset-md-1 row-block card",
           key: p.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card-body"
