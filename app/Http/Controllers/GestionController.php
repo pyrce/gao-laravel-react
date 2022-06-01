@@ -31,7 +31,7 @@ class GestionController extends Controller
     {
 
         $data = $request->validate([
-            'date' => ['required','max:255'],
+            'nom' => ['required','max:255'],
         ]);
 
         $ordi = new Postes();
