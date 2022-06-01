@@ -23,20 +23,20 @@ Route::post('register', [UserController::class, 'store']);
 Route::post("login", [UserController::class, 'login']);
 
 
-    Route::prefix('postes')->group(function () {
+    Route::prefix('/postes')->group(function () {
         Route::get("/", [GestionController::class, 'index']);
         Route::post('/add', [GestionController::class, 'store']);
         Route::delete('/{id}', [GestionController::class, 'destroy']);
     });
 
-    Route::prefix('clients')->group(function () {
+    Route::prefix('/users')->group(function () {
         Route::get("/", [ClientsController::class, 'index']);
-        Route::post('/', [ClientsController::class, 'store']);
+        Route::post('/add', [ClientsController::class, 'store']);
     });
 
-    Route::prefix('attributions')->group(function () {
+    Route::prefix('/attributions')->group(function () {
         Route::post("/", [AttributionsController::class, 'store']);
-        Route::delete('/', [AttributionsController::class, 'delete']);
+        Route::delete('/delete', [AttributionsController::class, 'delete']);
     });
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get("logout", [UserController::class, 'logout']);

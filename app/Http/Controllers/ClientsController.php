@@ -18,7 +18,7 @@ class ClientsController extends Controller
             ]
         )->validate();
         $ordis = Clients::where("nomClient",'LIKE','%'.$data["nomClient"]."%")->orWhere("prenomClient","like",'%'.$data["nomClient"].'%')->get();
-        return Clients::get();
+        return $ordis;
     }
     public function store(Request $request){
         $client = new Clients();

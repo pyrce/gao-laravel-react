@@ -35,7 +35,7 @@ class GestionController extends Controller
         ]);
 
         $ordi = new Postes();
-        $ordi->name = $data['nomPoste'];
+        $ordi->nomPoste = $data['nomPoste'];
         $ordi->save();
         return new PostesResource($ordi);
     }

@@ -60,7 +60,7 @@ class Attributions extends Component {
       // eslint-disable-next-line
             this.props.Attributions.map(h=>{
               let attributionsCopy=this.state.attributions;
-               attributionsCopy[h.heure] = {id:h.id,nomClient:h.client.nomClient,prenomClient:h.client.prenomClient}
+               attributionsCopy[h.heure] = {id:h.id,nomClient:h.clients.nomClient,prenomClient:h.clients.prenomClient}
               this.setState({ attributions : attributionsCopy });
             });
             console.log(this.state.attributions);
@@ -77,7 +77,7 @@ class Attributions extends Component {
       let option = document.querySelector(`option[value="${inputValue}"]`).dataset["idclient"];
 
    axios({ 
-        url:"/attribution/attribuer",
+        url:"/api/attributions",
         method:"post",
         data:{ 
           posteId:this.props.posteId,
@@ -95,14 +95,17 @@ class Attributions extends Component {
 populate(e){
 
 if(e.target.value.length>2){
-  axios.post(`/users`,{nomClient:e.target.value}).then(data=>
+  console.log("client : "+e.target.value)
+  axios.get(`/api/users`,{params:{nomClient:e.target.value}}).then(data=>
   {
 
  let client=data.data;
  var t=[];
-
-   t.push(<option data-idclient={client.id} value={client.nomClient+"-"+client.prenomClient} key={client.id}>{client.nomClient+"-"+client.prenomClient}</option>)
+ client.forEach(client => {
+     t.push(<option data-idclient={client.id} value={client.nomClient+"-"+client.prenomClient} key={client.id}>{client.nomClient+"-"+client.prenomClient}</option>)
  
+});
+
  this.setState({clients:t});
     // this.setState({ defaultProps: { ...this.state.defaultProps, options: client } });
    } )
@@ -110,7 +113,7 @@ if(e.target.value.length>2){
 }
 ajoutClient(){
   axios({ 
-    url:"/users/add",
+    url:"/api/users/add",
     method:"post",
     data:{ 
       nomClient:this.state.nomClient,
@@ -163,7 +166,7 @@ if( this.state.attributions[h] ){
             <Modal isOpen={this.state.show} style={customStyles} onRequestClose={this.closeModal}>
     
          
-            <input type="text" id="clients" list="nom" onKeyDown={this.populate} onChange={this.handleSelect}/>
+            <input type="text" id="clients" list="nom" onKeyDown={this.populate} onInput={this.handleSelect}/>
           <datalist id="nom" >
 {this.state.clients}
           </datalist>

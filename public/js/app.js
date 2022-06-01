@@ -90244,8 +90244,8 @@ var Attributions = /*#__PURE__*/function (_Component) {
         var attributionsCopy = _this3.state.attributions;
         attributionsCopy[h.heure] = {
           id: h.id,
-          nomClient: h.client.nomClient,
-          prenomClient: h.client.prenomClient
+          nomClient: h.clients.nomClient,
+          prenomClient: h.clients.prenomClient
         };
 
         _this3.setState({
@@ -90270,7 +90270,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var inputValue = document.getElementById("clients").value;
       var option = document.querySelector("option[value=\"".concat(inputValue, "\"]")).dataset["idclient"];
       axios__WEBPACK_IMPORTED_MODULE_2___default()({
-        url: "/attribution/attribuer",
+        url: "/api/attributions",
         method: "post",
         data: {
           posteId: this.props.posteId,
@@ -90290,16 +90290,21 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var _this5 = this;
 
       if (e.target.value.length > 2) {
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/users", {
-          nomClient: e.target.value
+        console.log("client : " + e.target.value);
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/users", {
+          params: {
+            nomClient: e.target.value
+          }
         }).then(function (data) {
           var client = data.data;
           var t = [];
-          t.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-            "data-idclient": client.id,
-            value: client.nomClient + "-" + client.prenomClient,
-            key: client.id
-          }, client.nomClient + "-" + client.prenomClient));
+          client.forEach(function (client) {
+            t.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+              "data-idclient": client.id,
+              value: client.nomClient + "-" + client.prenomClient,
+              key: client.id
+            }, client.nomClient + "-" + client.prenomClient));
+          });
 
           _this5.setState({
             clients: t
@@ -90314,7 +90319,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default()({
-        url: "/users/add",
+        url: "/api/users/add",
         method: "post",
         data: {
           nomClient: this.state.nomClient,
@@ -90414,7 +90419,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
         id: "clients",
         list: "nom",
         onKeyDown: this.populate,
-        onChange: this.handleSelect
+        onInput: this.handleSelect
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("datalist", {
         id: "nom"
       }, this.state.clients), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Button"], {
