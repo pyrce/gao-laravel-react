@@ -8,7 +8,7 @@ class Home extends Component {
         return (
            <div>
                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                   <Link className={"navbar-brand"} to={"/"}> Symfony React Project </Link>
+                   <Link className={"navbar-brand"} to={"/"}> Laravel React Project </Link>
                    <div className="collapse navbar-collapse" id="navbarText">
                        <ul className="navbar-nav mr-auto">
                        

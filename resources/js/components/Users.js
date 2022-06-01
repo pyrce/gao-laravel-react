@@ -4,6 +4,17 @@ import Modal from 'react-modal';
 import Attributions from './Attributions';
 import '../../css/app.css';   
 import { TextField } from '@material-ui/core';
+const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
+
 class postes extends Component {
     constructor() {
         super();
@@ -68,7 +79,7 @@ this.getPostes();
             <div>
                
                 <section className="row-section">
-                    <div className="container">
+                    <div className="">
 <div className="d-flex flex-row">
 
                         <TextField
@@ -89,8 +100,8 @@ this.getPostes();
                                 <span className="fa fa-spin fa-spinner fa-4x"></span>
                             </div>
                         ) : (
-                            <div className='row d-flex flex-row flex-warp'>
-           <Modal isOpen={this.state.show} onRequestClose={this.closeModal}>
+                            <div className='row row-col-4 g-4'>
+           <Modal isOpen={this.state.show} style={customStyles} onRequestClose={this.closeModal}>
           <button onClick={this.closeModal}>close</button>
           <input type="text" id="postes" onInput={(e)=>this.setState({nomPoste:e.target.value})}/>
   
@@ -98,14 +109,15 @@ this.getPostes();
         </Modal>
                       { 
                                 this.state.listepostes.map(p =>
-                                    <div className="col-md-4 col-lg-3 col-sm-3 offset-md-1 row-block card" key={p.id}>
+                                    <div className="col col-md-4 col-lg-3 col-sm-6 ">
+                                    <div className=" card" key={p.id}>
                                     <div className="card-body">
                                             {p.nomPoste}
                                  
                                         
                                         <Attributions action={this.update} posteId={p.id} Attributions={p.attributions} />
                                        </div>   
-                                      
+                                      </div>
                                     </div>
                                 )}
                             </div>
