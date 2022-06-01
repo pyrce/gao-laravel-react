@@ -46,7 +46,7 @@ class Attributions extends Component {
         
            axios({
             method: 'delete',
-            url: 'http://localhost:3000/attribution/delete',
+            url: '/attribution/delete',
             data: {
               id:id
             }
@@ -77,7 +77,7 @@ class Attributions extends Component {
       let option = document.querySelector(`option[value="${inputValue}"]`).dataset["idclient"];
 
    axios({ 
-        url:"http://localhost:3000/attribution/attribuer",
+        url:"/attribution/attribuer",
         method:"post",
         data:{ 
           posteId:this.props.posteId,
@@ -95,7 +95,7 @@ class Attributions extends Component {
 populate(e){
 
 if(e.target.value.length>2){
-  axios.post(`http://localhost:3000/users`,{nomClient:e.target.value}).then(data=>
+  axios.post(`/users`,{nomClient:e.target.value}).then(data=>
   {
 
  let client=data.data;
@@ -110,7 +110,7 @@ if(e.target.value.length>2){
 }
 ajoutClient(){
   axios({ 
-    url:"http://localhost:3000/users/add",
+    url:"/users/add",
     method:"post",
     data:{ 
       nomClient:this.state.nomClient,

@@ -33,7 +33,7 @@ class postes extends Component {
     
     getPostes(e) {
 
-       axios.get(`http://localhost:8000/api/postes`,{params:{date:this.state.date}}).then(postes => {
+       axios.get(`/api/postes`,{params:{date:this.state.date}}).then(postes => {
 
            var t=Object.keys(postes.data.data).map((key) => postes.data.data[key]);
 

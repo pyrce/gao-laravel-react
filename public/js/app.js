@@ -90226,7 +90226,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_2___default()({
         method: 'delete',
-        url: 'http://localhost:3000/attribution/delete',
+        url: '/attribution/delete',
         data: {
           id: id
         }
@@ -90270,7 +90270,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var inputValue = document.getElementById("clients").value;
       var option = document.querySelector("option[value=\"".concat(inputValue, "\"]")).dataset["idclient"];
       axios__WEBPACK_IMPORTED_MODULE_2___default()({
-        url: "http://localhost:3000/attribution/attribuer",
+        url: "/attribution/attribuer",
         method: "post",
         data: {
           posteId: this.props.posteId,
@@ -90290,7 +90290,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var _this5 = this;
 
       if (e.target.value.length > 2) {
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("http://localhost:3000/users", {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/users", {
           nomClient: e.target.value
         }).then(function (data) {
           var client = data.data;
@@ -90314,7 +90314,7 @@ var Attributions = /*#__PURE__*/function (_Component) {
       var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default()({
-        url: "http://localhost:3000/users/add",
+        url: "/users/add",
         method: "post",
         data: {
           nomClient: this.state.nomClient,
@@ -90646,7 +90646,7 @@ var postes = /*#__PURE__*/function (_Component) {
     value: function getPostes(e) {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://localhost:8000/api/postes", {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/postes", {
         params: {
           date: this.state.date
         }
