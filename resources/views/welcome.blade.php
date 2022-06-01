@@ -25,6 +25,6 @@
     <div id="root"></div>
 
 
-    <script src="{{ secure_assets('js/app.js') }}?time={{ time() }}"></script>
+<script src="js/app.js"></script>
     </body>
 </html>
