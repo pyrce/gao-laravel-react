@@ -31,11 +31,11 @@ class GestionController extends Controller
     {
 
         $data = $request->validate([
-            'nom' => ['required','max:255'],
+            'nomPoste' => ['required','max:255'],
         ]);
 
         $ordi = new Postes();
-        $ordi->name = $data['name'];
+        $ordi->name = $data['nomPoste'];
         $ordi->save();
         return new PostesResource($ordi);
     }
