@@ -27,7 +27,7 @@ class GestionController extends Controller
         return PostesResource::collection($ordis);
     }
 
-    function add(Request $request)
+    function store(Request $request)
     {
 
         $data = $request->validate([
