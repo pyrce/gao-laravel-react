@@ -25,7 +25,7 @@ Route::post("login", [UserController::class, 'login']);
 
     Route::prefix('postes')->group(function () {
         Route::get("/", [GestionController::class, 'index']);
-        Route::post('/', [GestionController::class, 'store']);
+        Route::post('/add', [GestionController::class, 'store']);
         Route::delete('/{id}', [GestionController::class, 'destroy']);
     });
 
